@@ -8,11 +8,11 @@ const team = [
   { 
     name: "Nguyễn Hà Gia Hưng", 
     role: "Lắp ráp - Thiết kế web - Thuyết minh",
-    avatar: "/chỗ để ảnh" 
+    avatar: "/a.png" 
   },
   { 
     name: "Đinh Hoàng Khôi", 
-    role: "Lập trình - Thiết kế web - Ý tưởng",
+    role: "Lập trình - Ý tưởng",
     avatar: "/b.png" 
   },
   { 
@@ -22,8 +22,8 @@ const team = [
   },
   { 
     name: "Nguyễn Huy Thông", 
-    role: "Thuyết minh",
-    avatar: "" 
+    role: "Hỗ trợ kỹ thuật",
+    avatar: "/c.png" 
   },
 ]
 

@@ -8,7 +8,6 @@ const points = [
   "4 cảm biến LDR phát hiện hướng có ánh sáng mạnh nhất",
   "2 động cơ servo xoay tấm pin theo 2 trục linh hoạt",
   "Arduino xử lý dữ liệu và điều khiển theo thời gian thực",
-  "Quạt mini tích hợp đèn LED sử dụng nguồn điện chung để minh họa khả năng cung cấp điện cho các thiết bị nhỏ.",
 ]
 
 export function SolutionSection() {

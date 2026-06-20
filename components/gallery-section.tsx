@@ -3,109 +3,98 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-// 🌟 ĐIỀN TÊN FILE VIDEO CỦA BẠN TẠI ĐÂY:
-const VIDEO_FILENAME = "project-demo.mp4" 
-
-const images = [
-  { src: "/solar-tracker-hero.png", alt: "Mô hình hoàn chỉnh", className: "md:col-span-2 md:row-span-2" },
-  { src: "/gallery-circuit.png", alt: "Mạch điện và Arduino", className: "" },
-  { src: "/gallery-prototype.png", alt: "Cận cảnh servo và cảm biến", className: "" },
-  { src: "/gallery-field.png", alt: "Tấm pin hướng về Mặt Trời", className: "md:col-span-2" },
-]
-
 export function GallerySection() {
   return (
-    <section id="gallery" className="relative bg-slate-950/10 py-24 md:py-32 overflow-hidden">
-      {/* Đốm sáng công nghệ chạy ngầm phía sau */}
+    <section
+      id="gallery"
+      className="relative overflow-hidden bg-slate-950/10 py-24 md:py-32"
+    >
+      {/* Glow Background */}
       <div className="pointer-events-none absolute left-1/3 top-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-slate-500/5 blur-[130px]" />
 
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        
-        {/* ================= TIÊU ĐỀ SECTION ================= */}
+        {/* ================= TITLE ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-2xl mb-16"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-16 max-w-2xl"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
             Thư viện
           </span>
-          <h2 className="mt-4 text-balance text-3xl font-black tracking-tight text-white md:text-5xl bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent">
+
+          {/* Đã thêm font-sans để sửa lỗi hiển thị dấu nặng */}
+          <h2 className="mt-4 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-3xl font-black tracking-tight text-transparent md:text-5xl font-sans">
             Hình ảnh & Video thực tế
           </h2>
         </motion.div>
 
+        {/* ================= GALLERY ================= */}
+        <div className="mb-20 grid grid-cols-1 gap-4 md:grid-cols-4">
+          
+          {/* Ảnh lớn (Chiếm 2 cột) */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="group relative h-[450px] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 md:col-span-2"
+          >
+            <Image src="/solar-tracker-hero.png" alt="Mô hình hoàn chỉnh" fill className="object-cover transition duration-500 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+            <span className="absolute bottom-4 left-4 translate-y-2 text-xs font-semibold text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              Mô hình hoàn chỉnh
+            </span>
+          </motion.div>
 
-        {/* ================= KHU VỰC 1: LƯỚI HÌNH ẢNH DỰ ÁN (ĐƯA LÊN TRƯỚC) ================= */}
-        <div className="grid auto-rows-[200px] grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[220px] mb-16">
-          {images.map((img, i) => (
-            <motion.div
-              key={img.alt}
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              whileHover={{ 
-                y: -6,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 25px rgba(255,255,255,0.12)",
-              }}
-              className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/40 ${img.className}`}
-            >
-              <Image
-                src={img.src || "/placeholder.svg"}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {/* Lớp phủ Gradient tối mịn khi hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              
-              {/* Chú thích ảnh đẩy nhẹ lên từ chân khung */}
-              <span className="absolute bottom-4 left-4 text-xs font-semibold text-white tracking-wide opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                {img.alt}
+          {/* Cột ảnh nhỏ */}
+          <div className="flex flex-col gap-4">
+            <motion.div whileHover={{ y: -5 }} className="group relative h-[217px] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+              <Image src="/gallery-circuit.png" alt="Quạt mini" fill className="object-cover transition duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+              <span className="absolute bottom-4 left-4 translate-y-2 text-xs font-semibold text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                Quạt mini tích hợp LED
               </span>
             </motion.div>
-          ))}
-        </div>
+            <motion.div whileHover={{ y: -5 }} className="group relative h-[217px] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+              <Image src="/gallery-prototype.png" alt="Cận cảnh" fill className="object-cover transition duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+              <span className="absolute bottom-4 left-4 translate-y-2 text-xs font-semibold text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                Cận cảnh servo và cảm biến
+              </span>
+            </motion.div>
+          </div>
 
-
-        {/* ================= KHU VỰC 2: VIDEO HOẠT ĐỘNG (ĐẨY XUỐNG SAU & TĂNG KÍCH THƯỚC) ================= */}
-        <div className="pt-4">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ 
-              y: -5,
-              boxShadow: "0 30px 60px rgba(0,0,0,0.6), 0 0 35px rgba(255,255,255,0.2)",
-            }}
-            // max-w-5xl giúp khung video to, rộng và hoành tráng hơn rất nhiều
-            className="group relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-white/5 bg-slate-900/30 p-2.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/40"
-          >
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-inner">
-              <video
-                src={`/videos/${VIDEO_FILENAME}`} 
-                controls
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-95 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              
-              {/* Nhãn hiệu ứng chấm đỏ nhấp nháy công nghệ */}
-              <div className="pointer-events-none absolute top-5 left-5 flex items-center gap-2 rounded-md bg-slate-950/70 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md border border-white/10 shadow-lg">
-                <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                VIDEO MÔ PHỎNG VẬN HÀNH DỰ ÁN
-              </div>
-            </div>
+          {/* Ảnh cuối */}
+          <motion.div whileHover={{ y: -5 }} className="group relative h-full min-h-[450px] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+            <Image src="/gallery-field.png" alt="Mạch điện" fill className="object-cover transition duration-500 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+            <span className="absolute bottom-4 left-4 translate-y-2 text-xs font-semibold text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              Mạch điện và Arduino
+            </span>
           </motion.div>
         </div>
 
+        {/* ================= VIDEO ================= */}
+        <motion.a
+          href="https://limewire.com/d/oqnJ7#DK53YOYkJv"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{
+            y: -5,
+            boxShadow: "0 30px 60px rgba(0,0,0,0.6), 0 0 35px rgba(255,255,255,0.15)",
+          }}
+          className="group relative mx-auto block max-w-5xl overflow-hidden rounded-2xl border border-white/5 bg-slate-900/30 p-2.5 backdrop-blur-md transition-all duration-300 hover:border-white/20"
+        >
+          <div className="relative aspect-video overflow-hidden rounded-xl bg-black flex items-center justify-center">
+            {/* Bạn có thể thay div này bằng component VideoThumbnail nếu có */}
+            <div className="text-slate-500 text-sm">Nhấp để xem Video vận hành</div>
+            
+            <div className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 rounded-md border border-white/10 bg-slate-950/70 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+              VIDEO VẬN HÀNH MÔ HÌNH
+            </div>
+          </div>
+        </motion.a>
       </div>
     </section>
   )
