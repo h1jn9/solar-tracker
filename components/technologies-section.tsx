@@ -20,7 +20,7 @@ const tech = [
     imgSrc: "/servo.png"
   },
   { 
-    name: "Tấm pin mini", 
+    name: "2 Tấm pin mini", 
     desc: "Chuyển hóa quang năng từ ánh sáng Mặt Trời thành điện năng cung cấp hiệu quả cho hệ thống.",
     imgSrc: "/solar-panel.png"
   },
