@@ -89,7 +89,7 @@ export function Navigation() {
         <Sun className="h-4 w-4 fill-current" />
       </span>
       <span className="text-sm font-bold text-white whitespace-nowrap">
-        GROUP<span className="text-yellow-300"> 8A1</span>
+        GROUP<span className="text-yellow-300"> 8A1 / THCS HOÀ TÂN</span>
       </span>
     </button>
   </div>

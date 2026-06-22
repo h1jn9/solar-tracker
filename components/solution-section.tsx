@@ -45,7 +45,7 @@ export function SolutionSection() {
             Một hệ thống tự động xoay theo Mặt Trời
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Solar Tracker AI liên tục đo cường độ ánh sáng từ 4 hướng và tự động điều chỉnh góc tấm pin để luôn hướng về
+            Solar Tracker liên tục đo cường độ ánh sáng từ 4 hướng và tự động điều chỉnh góc tấm pin để luôn hướng về
             nguồn sáng mạnh nhất, tối ưu hóa lượng điện thu được.
           </p>
 
