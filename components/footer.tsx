@@ -24,7 +24,7 @@ export function Footer() {
 
           {/* Phần bản quyền: căn giữa bằng flex-1 và text-center */}
           <p className="flex-1 text-center text-xs text-slate-400">
-            © 2026 THCS HÒA TÂN / 8A1.
+            © 2026 Gia Hung
           </p>
 
           {/* Phần bên phải */}
